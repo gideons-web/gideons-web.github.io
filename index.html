@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Siswa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 20px;
+            border: 5px solid #3498db;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+        }
+        .info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+        }
+        .label {
+            font-weight: bold;
+            color: #3498db;
+            width: 100px;
+            flex-shrink: 0;
+        }
+        .hobbies {
+            margin-top: 20px;
+        }
+        .hobbies ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .hobbies li {
+            background-color: #3498db;
+            color: white;
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .hobbies li:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+        }
+        .social-media {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .social-media a {
+            color: #3498db;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        .social-media a:hover {
+            color: #2c3e50;
+            transform: scale(1.2);
+        }
+        @media (max-width: 600px) {
+            .info-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .label {
+                width: auto;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>About Me</h1>
+        <img src="/api/placeholder/200/200" alt="Foto Profil" class="profile-img">
+        <div class="info">
+            <div class="info-item">
+                <span class="label">Nama:</span>
+                <span>Chris Gideon Sihombing</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Umur:</span>
+                <span>16 Tahun</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Kelas:</span>
+                <span>XI-A</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Sekolah:</span>
+                <span>SMA Negeri 2 Lubuk Pakam</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Email:</span>
+                <span>chrisgideons15@gmail.com</span>
+            </div>
+        </div>
+        <div class="hobbies">
+            <h2>Hobi</h2>
+            <ul>
+                <li>Game Online</li>
+                <li>Sepak Bola</li>
+                <li>Coding</li>
+            </ul>
+        </div>
+        <div class="social-media">
+            <a href="https://instagram.com/chris.gideon_" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/6283167074687" target="_blank" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
