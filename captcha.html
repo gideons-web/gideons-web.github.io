@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .login-box {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 320px;
+            text-align: center;
+        }
+        
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        .error {
+            color: red;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        
+        .captcha-box {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border: 1px dashed #ccc;
+        }
+        
+        .captcha-text {
+            font-family: 'Courier New', monospace;
+            font-size: 24px;
+            letter-spacing: 3px;
+            margin: 10px 0;
+            user-select: none;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            
+            <div class="captcha-box">
+                <p>Verifikasi bahwa Anda bukan robot:</p>
+                <div class="captcha-text" id="captchaText"></div>
+                <input type="text" id="captchaInput" placeholder="Ketik teks di atas" required>
+                <button type="button" onclick="refreshCaptcha()">Refresh CAPTCHA</button>
+            </div>
+            
+            <button type="submit">Masuk</button>
+        </form>
+        <p id="errorMsg" class="error"></p>
+    </div>
+
+    <script>
+        // Generate CAPTCHA sederhana
+        function generateCaptcha() {
+            const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            let captcha = "";
+            for (let i = 0; i < 6; i++) {
+                captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return captcha;
+        }
+        
+        // Set CAPTCHA saat halaman dimuat
+        let currentCaptcha = generateCaptcha();
+        document.getElementById('captchaText').textContent = currentCaptcha;
+        
+        // Refresh CAPTCHA (bisa ditambahkan tombol refresh nanti)
+        function refreshCaptcha() {
+            currentCaptcha = generateCaptcha();
+            document.getElementById('captchaText').textContent = currentCaptcha;
+            document.getElementById('captchaInput').value = "";
+        }
+        
+        // Proses login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Ganti dengan username dan password yang Anda inginkan
+            const correctUsername = "Gideon";
+            const correctPassword = "Gideons15";
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const captchaInput = document.getElementById('captchaInput').value;
+            
+            // Validasi CAPTCHA pertama
+            if (captchaInput !== currentCaptcha) {
+                document.getElementById('errorMsg').textContent = "Kode verifikasi salah!";
+                refreshCaptcha();
+                return;
+            }
+            
+            // Validasi login
+            if(username === correctUsername && password === correctPassword) {
+                sessionStorage.setItem('isLoggedIn', 'true');
+                window.location.href = "index.html";
+            } else {
+                document.getElementById('errorMsg').textContent = "Username atau password salah!";
+                refreshCaptcha();
+            }
+        });
+    </script>
+</body>
+</html>
