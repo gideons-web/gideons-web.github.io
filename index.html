@@ -140,7 +140,7 @@
             // Validasi login
             if(username === correctUsername && password === correctPassword) {
                 sessionStorage.setItem('isLoggedIn', 'true');
-                window.location.href = "idk.html";
+                window.location.href = "biodata.html";
             } else {
                 document.getElementById('errorMsg').textContent = "Username atau password salah!";
                 refreshCaptcha();
